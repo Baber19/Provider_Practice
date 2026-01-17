@@ -23,6 +23,8 @@ class ProviderPractice extends StatelessWidget {
       body: Column(
         children: [
           Text("Provider Practice"),
+          Text("Provider Practice"),
+
 
 
 
