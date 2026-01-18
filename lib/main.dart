@@ -24,7 +24,6 @@ class ProviderPractice extends StatelessWidget {
         children: [
           Text("Provider Practice"),
           Text("Provider Practice"),
-          Text("Provider Practice"),
 
 
 
