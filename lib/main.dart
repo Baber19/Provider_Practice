@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,32 +16,27 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MyCounterApp(),
+      home: CounterApp(),
     );
   }
 }
- class MyCounterApp extends StatelessWidget {
-   const MyCounterApp({super.key});
+class CounterApp extends StatelessWidget {
+  const CounterApp({super.key});
 
- 
-   @override
-   Widget build(BuildContext context) {
-     int num = context.watch<CounterProvider>().counter;
-     return Scaffold(
-       body: Column(
-         mainAxisAlignment: MainAxisAlignment.center,
-         crossAxisAlignment: CrossAxisAlignment.center,
-         children: [
-           Text(
-             "$num",style: TextStyle(fontSize: 25),
-           ),
-         ],
-       ),
-       floatingActionButton:  FloatingActionButton(onPressed: (){
-         context.read<CounterProvider>().increaseCounter();
-       },child: Text("+",style: TextStyle(fontSize: 20),),),
-     );
-   }
- }
- 
+  @override
+  Widget build(BuildContext context) {
+    int num = context.watch<CounterProvider>().counter;
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(child: Text("$num",style: TextStyle(fontSize: 25,color: Colors.green),)),
+        ],
+
+      ),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        context.read<CounterProvider>().changeCounterState();
+      },child: Text("+",style: TextStyle(fontSize: 25,color: Colors.purple),),),
+    );
+  }
+}
