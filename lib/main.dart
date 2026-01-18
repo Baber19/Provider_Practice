@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'counter_provider.dart';
 
 void main(){
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(create: (context) => CounterProvider(),child: MyApp(),)
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -10,22 +15,32 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ProviderPractice(),
+      debugShowCheckedModeBanner: false,
+      home: MyCounterApp(),
     );
   }
 }
-class ProviderPractice extends StatelessWidget {
-  const ProviderPractice({super.key});
+ class MyCounterApp extends StatelessWidget {
+   const MyCounterApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Text("Provider Practice"),
-        ],
-      ),
-
-    );
-  }
-}
+ 
+   @override
+   Widget build(BuildContext context) {
+     int num = context.watch<CounterProvider>().counter;
+     return Scaffold(
+       body: Column(
+         mainAxisAlignment: MainAxisAlignment.center,
+         crossAxisAlignment: CrossAxisAlignment.center,
+         children: [
+           Text(
+             "$num",style: TextStyle(fontSize: 25),
+           ),
+         ],
+       ),
+       floatingActionButton:  FloatingActionButton(onPressed: (){
+         context.read<CounterProvider>().increaseCounter();
+       },child: Text("+",style: TextStyle(fontSize: 20),),),
+     );
+   }
+ }
+ 
