@@ -1,12 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'counter_provider.dart';
 
-void main(){
+void main() {
   runApp(
-    ChangeNotifierProvider(create: (context) => CounterProvider(),child: MyApp(),)
+    ChangeNotifierProvider(
+      create: (context) => CounterProvider(),
+      child: MyApp(),
+    ),
   );
 }
 
@@ -15,11 +17,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: CounterApp(),
-    );
+    return MaterialApp(home: CounterApp());
   }
 }
+
 class CounterApp extends StatelessWidget {
   const CounterApp({super.key});
 
@@ -30,13 +31,20 @@ class CounterApp extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(child: Text("$num",style: TextStyle(fontSize: 25,color: Colors.green),)),
+          Center(
+            child: Text(
+              "$num",
+              style: TextStyle(fontSize: 25, color: Colors.green),
+            ),
+          ),
         ],
-
       ),
-      floatingActionButton: FloatingActionButton(onPressed: (){
-        context.read<CounterProvider>().changeCounterState();
-      },child: Text("+",style: TextStyle(fontSize: 25,color: Colors.purple),),),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          context.read<CounterProvider>().changeCounterState();
+        },
+        child: Text("+", style: TextStyle(fontSize: 25, color: Colors.purple)),
+      ),
     );
   }
 }
