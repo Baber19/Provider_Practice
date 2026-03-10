@@ -43,7 +43,7 @@ class CounterApp extends StatelessWidget {
         onPressed: () {
           context.read<CounterProvider>().changeCounterState();
         },
-        child: Text("+", style: TextStyle(fontSize: 25, color: Colors.purple)),
+        child: Text("-", style: TextStyle(fontSize: 25, color: Colors.purple)),
       ),
     );
   }
