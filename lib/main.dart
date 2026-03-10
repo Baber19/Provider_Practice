@@ -34,7 +34,7 @@ class CounterApp extends StatelessWidget {
           Center(
             child: Text(
               "$num",
-              style: TextStyle(fontSize: 25, color: Colors.green),
+              style: TextStyle(fontSize: 25, color: Colors.blue),
             ),
           ),
         ],
