@@ -1,7 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'counter_provider.dart';
+import 'package:provider_practice/counter_change_page.dart';
+import 'package:provider_practice/counter_provider.dart';
 
 void main() {
   runApp(
@@ -26,24 +27,21 @@ class CounterApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int num = context.watch<CounterProvider>().counter;
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Text(
-              "$num",
-              style: TextStyle(fontSize: 25, color: Colors.red),
-            ),
-          ),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Text(context.watch<CounterProvider>().counter.toString(),style: TextStyle(fontSize: 12),)],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.read<CounterProvider>().changeCounterState();
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => CounterChangePage()),
+          );
         },
-        child: Text("+", style: TextStyle(fontSize: 25, color: Colors.purple)),
+        child: Icon(Icons.add),
       ),
     );
   }
