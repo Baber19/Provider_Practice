@@ -31,7 +31,15 @@ class CounterApp extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text(context.watch<CounterProvider>().counter.toString(),style: TextStyle(fontSize: 12),)],
+          children: [
+            Consumer<CounterProvider>(builder: (ctx,provider,child){
+              return Text(
+                //ctx.watch<CounterProvider>().getCounter().toString(),
+               " ${provider.getCounter()}",
+                style: TextStyle(fontSize: 12),
+              );
+            })
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(

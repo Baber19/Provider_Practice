@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 
 class CounterProvider extends ChangeNotifier {
-  int counter=0;
+  //  pvt is lye bnaya k koi access na kr sky
+  int _counter=0;
+
+  //ab ye function is lye bnaya ta k counter ki value hasil ki ja sky
+  int getCounter()=> _counter;
 
   counterIncrement(){
-    counter++;
+    _counter++;
     notifyListeners();
   }
   counterDecrement(){
-    counter--;
+    if(_counter>0){
+      _counter--;
+    }
     notifyListeners();
   }
 }
