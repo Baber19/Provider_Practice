@@ -25,7 +25,7 @@ class ListPage extends StatelessWidget {
                         title: Text(mContacts[index]["name"]),
                         subtitle: Text(mContacts[index]["mobNo"]),
                         trailing: Row(
-                          mainAxisSize: MainAxisSize.min,
+                        //  mainAxisSize: MainAxisSize.min,
                           children: [
                             IconButton(
                               onPressed: () {
