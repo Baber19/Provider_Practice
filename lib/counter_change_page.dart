@@ -14,6 +14,7 @@ class CounterChangePage extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {
+               // Provider.of<CounterProvider>(context,listen: false).counterIncrement();
                 context.read<CounterProvider>().counterIncrement();
               },
               icon: Icon(Icons.add),
@@ -21,7 +22,8 @@ class CounterChangePage extends StatelessWidget {
             SizedBox(width: 10),
             IconButton(
               onPressed: () {
-                context.read<CounterProvider>().counterDecrement();
+               // Provider.of<CounterProvider>(context).counterIncrement();
+                context.read<CounterProvider>().counterIncrement();
               },
               icon: Icon(Icons.remove),
             ),

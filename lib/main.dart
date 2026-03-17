@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_practice/counter_change_page.dart';
@@ -27,18 +26,19 @@ class CounterApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("Build function called");
     return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Consumer<CounterProvider>(builder: (ctx,provider,child){
-              return Text(
-                //ctx.watch<CounterProvider>().getCounter().toString(),
-               " ${provider.getCounter()}",
-                style: TextStyle(fontSize: 12),
-              );
-            })
+            Consumer<CounterProvider>(
+              builder: (ctx, provider, child) {
+                return Text('${provider.getCounter()}');
+              },
+            ),
+            //Text(context.watch<CounterProvider>().getCounter().toString()),
+            //Text(Provider.of<CounterProvider>(context).getCounter().toString()),
           ],
         ),
       ),
