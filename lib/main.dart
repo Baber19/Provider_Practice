@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_practice/contact_list_provider.dart';
 import 'package:provider_practice/counter_change_page.dart';
 import 'package:provider_practice/counter_provider.dart';
+import 'package:provider_practice/list_page.dart';
 
 void main() {
   runApp(
     ChangeNotifierProvider(
-      create: (context) => CounterProvider(),
+      create: (context) => ContactListProvider(),
       child: MyApp(),
     ),
   );
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: CounterApp());
+    return MaterialApp(home: ListPage());
   }
 }
 
@@ -26,7 +28,6 @@ class CounterApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("Build function called");
     return Scaffold(
       body: Center(
         child: Column(
